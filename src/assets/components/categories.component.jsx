@@ -1,7 +1,8 @@
 import "./categories.styles.scss";
+import Category from "./category-component";
 
 const Categories = () => {
-  const data = [
+  const categories = [
     {
       id: 1,
       title: "Hats",
@@ -31,21 +32,8 @@ const Categories = () => {
 
   return (
     <div className="categories-container">
-      {data.map(({ title, id, img }) => {
-        return (
-          <div key={id} className="category-container">
-            <div
-              className="background-image"
-              style={{
-                backgroundImage: ` url(${img}) `,
-              }}
-            />
-            <div className="category-content">
-              <h2>{title}</h2>
-              <p>Show Now</p>
-            </div>
-          </div>
-        );
+      {categories.map((category) => {
+        return <Category key={category.id} category={category} />;
       })}
     </div>
   );
