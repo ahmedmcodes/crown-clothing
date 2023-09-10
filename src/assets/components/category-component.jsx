@@ -12,7 +12,7 @@ const Category = ({ category }) => {
       />
       <div className="category-content">
         <h2>{title}</h2>
-        <p>Show Now</p>
+        <p>SHOP NOW</p>
       </div>
     </div>
   );
