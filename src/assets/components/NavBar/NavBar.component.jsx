@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./NavBar.styles.scss";
-import Crown from "../../../src/crown.svg";
+import Crown from "../../../crown.svg";
 
 const NavBar = () => {
   return (
@@ -20,7 +20,7 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link className="nav-link" to="/login">
+          <Link className="nav-link" to="/sign-in">
             Sign In
           </Link>
         </li>
