@@ -32,13 +32,24 @@ provider.setCustomParameters({
 });
 
 export const auth = getAuth();
+
+//Methods of GoogleAuthProvider
 export const googleSignInWithPopUp = () => signInWithPopup(auth, provider);
 export const googleSignInWithRedirect = () =>
   signInWithRedirect(auth, provider);
-export const addUserDataToDatabase = async (user) => {
+
+//Function to add a user to Database after we get the details from Google Sign in method or Email/Password Signup Method
+export const addUserDataToDatabase = async (
+  user,
+  userDetailsfromPasswordSignup
+) => {
   const docRef = doc(db, "registeredUsers", user.uid);
   const docSnap = await getDoc(docRef);
-  const { displayName, email } = user;
+  let { displayName, email } = user;
+
+  if (!displayName) {
+    displayName = userDetailsfromPasswordSignup.displayName;
+  }
   const registeredAt = new Date();
   if (!docSnap.exists()) {
     await setDoc(docRef, {

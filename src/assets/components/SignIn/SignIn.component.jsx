@@ -7,6 +7,7 @@ import {
   addUserDataToDatabase,
 } from "../../../Utils/Firebase/firebase.utils";
 import { getRedirectResult } from "firebase/auth";
+import SignUpForm from "../Sign-up/Sign-up.component";
 
 const SignIn = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const SignIn = () => {
     <>
       <button onClick={logInUserWithGooglePopUp}>Popup Sign in</button>
       <button onClick={googleSignInWithRedirect}>Redirect Signin</button>;
+      <SignUpForm />
     </>
   );
 };
