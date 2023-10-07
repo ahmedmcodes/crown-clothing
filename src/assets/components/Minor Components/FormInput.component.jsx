@@ -5,7 +5,7 @@ const FormInput = ({ label, ...otherProps }) => {
         {label}
       </label>
       <input
-        className=" border border-black py-2 mb-4 hover:border-2"
+        className=" border border-black py-2 mb-4 hover:border-2 px-2"
         {...otherProps}
       />
     </>

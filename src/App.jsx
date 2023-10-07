@@ -6,9 +6,8 @@ import {
 } from "react-router-dom";
 import Home from "./assets/routes/home.component";
 import Navigation from "./assets/routes/NavBar.component";
-import SignIn from "./assets/components/SignIn/SignIn.component";
 import SignUpForm from "./assets/components/Sign-up/Sign-up.component";
-
+import SignIn from "./assets/components/Sign-in/Sign-in.component";
 const Shop = () => {
   return <h1>I am shop component</h1>;
 };
