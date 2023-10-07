@@ -8,6 +8,7 @@ import {
 } from "../../../Utils/Firebase/firebase.utils";
 import { getRedirectResult } from "firebase/auth";
 import SignUpForm from "../Sign-up/Sign-up.component";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   useEffect(() => {
@@ -27,9 +28,9 @@ const SignIn = () => {
 
   return (
     <>
+      <Link to="/sign-up">Create an account</Link>
       <button onClick={logInUserWithGooglePopUp}>Popup Sign in</button>
       <button onClick={googleSignInWithRedirect}>Redirect Signin</button>;
-      <SignUpForm />
     </>
   );
 };

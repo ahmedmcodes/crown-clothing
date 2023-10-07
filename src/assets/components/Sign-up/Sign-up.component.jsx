@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } from "firebase/auth";
+import FormInput from "../Minor Components/FormInput.component";
 
 const defaultUserDetails = {
   displayName: "",
@@ -54,34 +55,36 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleOnSubmit}>
-        <label htmlFor="name">Name</label>
-        <input
+    <div className="flex flex-col justify-center items-center  mx-60">
+      <h2 className="my-4 text-4xl">Create Account</h2>
+      <form onSubmit={handleOnSubmit} className="flex flex-col w-3/4 my-4">
+        <FormInput
+          label="Display Name"
           onChange={handleOnChange}
           type="text"
           name="displayName"
           required
           value={displayName}
         />
-        <label htmlFor="email">Email</label>
-        <input
+
+        <FormInput
+          label="Email"
           onChange={handleOnChange}
           type="email"
           name="email"
           required
           value={email}
         />
-        <label htmlFor="password">Password</label>
-        <input
+        <FormInput
+          label="Password"
           onChange={handleOnChange}
           type="password"
           name="password"
           required
           value={password}
         />
-        <label htmlFor="confirmPasword">Confirm Password</label>
-        <input
+        <FormInput
+          label="Confirm Password"
           onChange={handleOnChange}
           type="password"
           name="confirmPassword"
