@@ -8,14 +8,16 @@ import {
   sendEmailVerification,
 } from "firebase/auth";
 
+const defaultUserDetails = {
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
 //Signup form Component Code
 const SignUpForm = () => {
-  const [userDetails, setUserDetails] = useState({
-    displayName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const [userDetails, setUserDetails] = useState(defaultUserDetails);
   const [errorMessage, setErrorMessage] = useState("");
 
   const { displayName, email, password, confirmPassword } = userDetails;
@@ -37,12 +39,7 @@ const SignUpForm = () => {
         const user = userCredential.user;
         sendEmailVerification(user);
         addUserDataToDatabase(user, userDetails);
-        setUserDetails({
-          displayName: "",
-          email: "",
-          password: "",
-          confirmPassword: "",
-        });
+        setUserDetails(defaultUserDetails);
         setErrorMessage("");
       } else {
         setErrorMessage(
@@ -52,12 +49,7 @@ const SignUpForm = () => {
     } catch (error) {
       console.log(error);
       setErrorMessage(error.message);
-      setUserDetails({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
+      setUserDetails(defaultUserDetails);
     }
   };
 

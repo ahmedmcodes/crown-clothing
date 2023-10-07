@@ -39,16 +39,13 @@ export const googleSignInWithRedirect = () =>
   signInWithRedirect(auth, provider);
 
 //Function to add a user to Database after we get the details from Google Sign in method or Email/Password Signup Method
-export const addUserDataToDatabase = async (
-  user,
-  userDetailsfromPasswordSignup
-) => {
+export const addUserDataToDatabase = async (user, additionalDetails) => {
   const docRef = doc(db, "registeredUsers", user.uid);
   const docSnap = await getDoc(docRef);
   let { displayName, email } = user;
 
   if (!displayName) {
-    displayName = userDetailsfromPasswordSignup.displayName;
+    displayName = additionalDetails.displayName;
   }
   const registeredAt = new Date();
   if (!docSnap.exists()) {
