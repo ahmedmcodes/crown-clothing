@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   googleSignInWithPopUp,
   googleSignInWithRedirect,
@@ -6,11 +6,12 @@ import {
   auth,
   addUserDataToDatabase,
 } from "../../../Utils/Firebase/firebase.utils";
-import { getRedirectResult } from "firebase/auth";
+import { getRedirectResult, signInWithEmailAndPassword } from "firebase/auth";
 import SignUpForm from "../Sign-up/Sign-up.component";
 import { Link } from "react-router-dom";
 import FormInput from "../Minor Components/FormInput.component";
 import Button from "../Minor Components/Button.component";
+import { userContext } from "../../../Contexts/user.context";
 
 const defaultUserDetails = {
   email: "",
@@ -22,6 +23,7 @@ const SignIn = () => {
 
   const [errorMessage, setErrorMessage] = useState("");
   const { email, password } = userDetails;
+  const { setCurrentUser } = useContext(userContext);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     const response = await getRedirectResult(auth);
@@ -44,6 +46,25 @@ const SignIn = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      setCurrentUser(user);
+      setUserDetails(defaultUserDetails);
+      setErrorMessage("");
+    } catch (error) {
+      if (error.code === "auth/invalid-login-credentials") {
+        setErrorMessage(
+          "Invalid login details, please make sure your Email or Password is correct."
+        );
+      }
+
+      setUserDetails(defaultUserDetails);
+    }
   };
 
   return (
@@ -84,6 +105,7 @@ const SignIn = () => {
             Create an account
           </Link>
         </form>
+        {errorMessage && <div className="text-xl px-44">{errorMessage}</div>}
       </div>
     </>
   );

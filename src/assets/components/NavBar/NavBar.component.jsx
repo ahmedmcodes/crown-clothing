@@ -1,6 +1,10 @@
 import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
+import { userContext } from "../../../Contexts/user.context";
 
 const NavBar = () => {
+  const { currentUser } = useContext(userContext);
+
   return (
     <nav className="flex justify-between px-44 py-6 items-center  ">
       <div className="flex ">
@@ -21,7 +25,7 @@ const NavBar = () => {
       </div>
       <ul>
         <li className="hover:underline">
-          <Link to="/sign-in">Sign In</Link>
+          <Link to="/sign-in">{currentUser ? "Sign Out" : "Sign In"}</Link>
         </li>
       </ul>
     </nav>

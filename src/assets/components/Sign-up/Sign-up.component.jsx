@@ -10,7 +10,7 @@ import {
 import FormInput from "../Minor Components/FormInput.component";
 import Button from "../Minor Components/Button.component";
 import { Link } from "react-router-dom";
-
+//Default user details for Signup form
 const defaultUserDetails = {
   displayName: "",
   email: "",
@@ -42,7 +42,6 @@ const SignUpForm = () => {
           password
         );
         const user = userCredential.user;
-        sendEmailVerification(user);
         addUserDataToDatabase(user, userDetails);
         setUserDetails(defaultUserDetails);
         setErrorMessage("");
@@ -58,9 +57,7 @@ const SignUpForm = () => {
           "The email address is already in use. Please choose another one."
         );
       }
-      console.log(error);
-      console.log(error.message);
-      console.log(error.code);
+
       setUserDetails(defaultUserDetails);
     }
   };
@@ -103,7 +100,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
         <Button type="submit">Register</Button>
-        <Link to="/auth" className="m-auto pt-2 underline">
+        <Link to="/sign-in" className="m-auto pt-2 underline">
           Login
         </Link>
       </form>
