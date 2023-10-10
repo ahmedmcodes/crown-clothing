@@ -1,9 +1,22 @@
 import { NavLink, Link } from "react-router-dom";
 import { useContext } from "react";
 import { userContext } from "../../../Contexts/user.context";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../Utils/Firebase/firebase.utils";
 
 const NavBar = () => {
-  const { currentUser } = useContext(userContext);
+  const { currentUser, setCurrentUser } = useContext(userContext);
+  console.log(auth);
+  const handleSignOutButtonOnClick = async () => {
+    try {
+      await signOut(auth);
+      console.log(auth);
+      setCurrentUser(null);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(currentUser);
 
   return (
     <nav className="flex justify-between px-44 py-6 items-center  ">
@@ -25,7 +38,16 @@ const NavBar = () => {
       </div>
       <ul>
         <li className="hover:underline">
-          <Link to="/sign-in">{currentUser ? "Sign Out" : "Sign In"}</Link>
+          {currentUser ? (
+            <button
+              className="hover:cursor-pointer"
+              onClick={handleSignOutButtonOnClick}
+            >
+              Sign out
+            </button>
+          ) : (
+            <Link to="/sign-in">Sign in</Link>
+          )}
         </li>
       </ul>
     </nav>

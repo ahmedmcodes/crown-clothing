@@ -7,7 +7,6 @@ import {
   addUserDataToDatabase,
 } from "../../../Utils/Firebase/firebase.utils";
 import { getRedirectResult, signInWithEmailAndPassword } from "firebase/auth";
-import SignUpForm from "../Sign-up/Sign-up.component";
 import { Link } from "react-router-dom";
 import FormInput from "../Minor Components/FormInput.component";
 import Button from "../Minor Components/Button.component";
@@ -23,7 +22,7 @@ const SignIn = () => {
 
   const [errorMessage, setErrorMessage] = useState("");
   const { email, password } = userDetails;
-  const { setCurrentUser } = useContext(userContext);
+  const { currentUser, setCurrentUser } = useContext(userContext);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     const response = await getRedirectResult(auth);
@@ -36,7 +35,8 @@ const SignIn = () => {
 
   const logInUserWithGooglePopUp = async () => {
     const { user } = await googleSignInWithPopUp();
-    const userDocRef = await addUserDataToDatabase(user);
+    await addUserDataToDatabase(user);
+    setCurrentUser(user);
   };
 
   const handleOnChange = (e) => {
