@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import {
   auth,
   addUserDataToDatabase,
@@ -10,7 +10,6 @@ import {
 import FormInput from "../Minor Components/FormInput.component";
 import Button from "../Minor Components/Button.component";
 import { Link } from "react-router-dom";
-import { userContext } from "../../../Contexts/user.context";
 
 //Default user details for Signup form
 const defaultUserDetails = {
@@ -28,7 +27,6 @@ const SignUpForm = () => {
     useState("");
 
   const { displayName, email, password, confirmPassword } = userDetails;
-  const { currentUser, setCurrentUser } = useContext(userContext);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +43,6 @@ const SignUpForm = () => {
           password
         );
         const user = userCredential.user;
-        setCurrentUser(user);
         addUserDataToDatabase(user, userDetails);
         setUserDetails(defaultUserDetails);
         setErrorMessage("");

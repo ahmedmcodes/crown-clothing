@@ -22,7 +22,6 @@ const SignIn = () => {
 
   const [errorMessage, setErrorMessage] = useState("");
   const { email, password } = userDetails;
-  const { currentUser, setCurrentUser } = useContext(userContext);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     const response = await getRedirectResult(auth);
@@ -36,7 +35,6 @@ const SignIn = () => {
   const logInUserWithGooglePopUp = async () => {
     const { user } = await googleSignInWithPopUp();
     await addUserDataToDatabase(user);
-    setCurrentUser(user);
   };
 
   const handleOnChange = (e) => {
@@ -53,7 +51,6 @@ const SignIn = () => {
         password
       );
       const user = userCredential.user;
-      setCurrentUser(user);
       setUserDetails(defaultUserDetails);
       setErrorMessage("");
     } catch (error) {
