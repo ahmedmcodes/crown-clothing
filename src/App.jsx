@@ -8,9 +8,8 @@ import Home from "./assets/routes/home.component";
 import Navigation from "./assets/routes/NavBar.component";
 import SignUpForm from "./assets/components/Sign-up/Sign-up.component";
 import SignIn from "./assets/components/Sign-in/Sign-in.component";
-const Shop = () => {
-  return <h1>I am shop component</h1>;
-};
+import Shop from "./assets/components/Shop/Shop.component";
+
 const Contact = () => {
   return <h1>I am contact component</h1>;
 };

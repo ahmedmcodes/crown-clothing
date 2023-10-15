@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import FormInput from "../Minor Components/FormInput.component";
 import Button from "../Minor Components/Button.component";
 import { userContext } from "../../../Contexts/user.context";
+import { Navigate } from "react-router-dom";
 
 const defaultUserDetails = {
   email: "",
@@ -22,6 +23,7 @@ const SignIn = () => {
 
   const [errorMessage, setErrorMessage] = useState("");
   const { email, password } = userDetails;
+  const { currentUser } = useContext(userContext);
   // useEffect(() => {
   //   const fetchData = async () => {
   //     const response = await getRedirectResult(auth);
@@ -103,6 +105,7 @@ const SignIn = () => {
           </Link>
         </form>
         {errorMessage && <div className="text-xl px-44">{errorMessage}</div>}
+        {currentUser && <Navigate to="/" replace={true} />}
       </div>
     </>
   );

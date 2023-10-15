@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { userContext } from "../../../Contexts/user.context";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../Utils/Firebase/firebase.utils";
+import EmailNotVerified from "../Minor Components/EmailNotVerified.component";
 
 const NavBar = () => {
   const { currentUser } = useContext(userContext);
@@ -50,16 +51,7 @@ const NavBar = () => {
           </li>
         </ul>
       </nav>
-      {currentUser ? (
-        <div className="flex flex-col ">
-          {currentUser.emailVerified ? null : (
-            <span className="m-auto">
-              Your email is unverified. Please check your inbox for a
-              verification link
-            </span>
-          )}
-        </div>
-      ) : null}
+      {currentUser ? <EmailNotVerified currentUser={currentUser} /> : null}
     </>
   );
 };
