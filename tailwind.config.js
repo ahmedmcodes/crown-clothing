@@ -7,7 +7,7 @@ export default {
       ubuntu: ["Ubuntu Condensed", "sans-serif"],
     },
     gridTemplateColumns: {
-      "4-repeat": "repeat(4, 1fr)",
+      "4-repeat": "repeat(3, 1fr)",
     },
 
     extend: {},

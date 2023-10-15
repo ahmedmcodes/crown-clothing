@@ -4,10 +4,13 @@ import { userContext } from "../../../Contexts/user.context";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../Utils/Firebase/firebase.utils";
 import EmailNotVerified from "../Minor Components/EmailNotVerified.component";
-import { BsCartDash } from "react-icons/bs";
+import { BsCart2 } from "react-icons/bs";
+import CartDropdown from "../Minor Components/CartDropdown";
+import { cartContext } from "../../../Contexts/Cart.context";
 
 const NavBar = () => {
   const { currentUser } = useContext(userContext);
+  const { isCartOpen, setIsCartOpen } = useContext(cartContext);
 
   //Signs out from the app when the button is clicked
   const handleSignOutButtonOnClick = async () => {
@@ -50,9 +53,13 @@ const NavBar = () => {
               <Link to="/sign-in">Sign in</Link>
             )}
           </li>
-          <li className="pl-2 m-auto text-xl hover:cursor-pointer"></li>
+          <li className="pl-4 m-auto text-xl hover:cursor-pointer">
+            <BsCart2 onClick={() => setIsCartOpen(!isCartOpen)} />
+          </li>
         </ul>
       </nav>
+
+      {isCartOpen && <CartDropdown />}
       {currentUser ? <EmailNotVerified currentUser={currentUser} /> : null}
     </>
   );

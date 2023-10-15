@@ -7,7 +7,7 @@ const Shop = () => {
   console.log(products);
 
   return (
-    <div className="grid grid-cols-4-repeat gap-y-10 p-4 gap-x-3 mx-60">
+    <div className="grid grid-cols-4-repeat gap-y-10 p-4 gap-x-10 mx-60">
       {products.map((product) => {
         return <ProductCard key={product.id} product={product} />;
       })}
