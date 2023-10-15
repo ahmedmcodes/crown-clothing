@@ -1,0 +1,27 @@
+[
+    {
+    "id": 1,
+    "name": "Metro Mingle",
+    "image": "/src/Images for GE/BackPack Mockup 1/thumbnail.jpg",
+    "price": 33.95 
+    },
+    {
+    "id": 2,
+    "name": "Every Day Explorer",
+    "image": "/src/Images for GE/BackPack Mockup 2/thumbnail.jpg",
+    "price": 33.95 
+    },
+    {
+    "id": 3,
+    "name": "Versa Trek",
+    "image": "/src/Images for GE/BackPack Mockup 3/thumbnail.jpg",
+    "price": 33.95 
+    },
+    {
+    "id": 4,
+    "name": "Commute Pro",
+    "image": "/src/Images for GE/BackPack Mockup 4/thumbnail.jpg",
+    "price": 33.95 
+    }
+   
+]

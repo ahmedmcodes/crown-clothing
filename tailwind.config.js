@@ -6,6 +6,10 @@ export default {
       righteous: ["Righteous", "cursive"],
       ubuntu: ["Ubuntu Condensed", "sans-serif"],
     },
+    gridTemplateColumns: {
+      "4-repeat": "repeat(4, 1fr)",
+    },
+
     extend: {},
   },
   plugins: [],

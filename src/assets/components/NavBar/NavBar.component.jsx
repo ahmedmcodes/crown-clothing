@@ -4,6 +4,7 @@ import { userContext } from "../../../Contexts/user.context";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../Utils/Firebase/firebase.utils";
 import EmailNotVerified from "../Minor Components/EmailNotVerified.component";
+import { BsCartDash } from "react-icons/bs";
 
 const NavBar = () => {
   const { currentUser } = useContext(userContext);
@@ -36,7 +37,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <ul>
+        <ul className="flex flex-row">
           <li className="hover:underline">
             {currentUser ? (
               <button
@@ -49,6 +50,7 @@ const NavBar = () => {
               <Link to="/sign-in">Sign in</Link>
             )}
           </li>
+          <li className="pl-2 m-auto text-xl hover:cursor-pointer"></li>
         </ul>
       </nav>
       {currentUser ? <EmailNotVerified currentUser={currentUser} /> : null}
