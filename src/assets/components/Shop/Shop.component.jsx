@@ -4,7 +4,6 @@ import ProductCard from "../Product-Card/Product-card.component";
 
 const Shop = () => {
   const { products } = useContext(productsContext);
-  console.log(products);
 
   return (
     <div className="grid grid-cols-4-repeat gap-y-10 p-4 gap-x-10 mx-60">
