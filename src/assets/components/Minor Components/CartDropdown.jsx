@@ -2,6 +2,7 @@ import Button from "../Minor Components/Button.component";
 import CartItems from "./CartItems.component";
 import { cartContext } from "../../../Contexts/Cart.context";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const CartDropdown = () => {
   //Using Context to get the current Items in Context
@@ -19,7 +20,9 @@ const CartDropdown = () => {
       <CartItems />
       <p>Total Amount: ${totalCost}</p>
       <div className=" mt-auto mx-auto">
-        <Button>GO TO CHECKOUT</Button>
+        <Button>
+          <Link to="checkout">GO TO CHECKOUT</Link>
+        </Button>
       </div>
     </div>
   );
