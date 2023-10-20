@@ -10,7 +10,7 @@ import { cartContext } from "../../../Contexts/Cart.context";
 
 const NavBar = () => {
   const { currentUser } = useContext(userContext);
-  const { isCartOpen, setIsCartOpen } = useContext(cartContext);
+  const { isCartOpen, setIsCartOpen, cartItems } = useContext(cartContext);
 
   //Signs out from the app when the button is clicked
   const handleSignOutButtonOnClick = async () => {
@@ -20,6 +20,11 @@ const NavBar = () => {
       console.log(error);
     }
   };
+
+  //Code which finds out the current number of items in the cart
+  const totalItems = cartItems.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
 
   return (
     <>
@@ -53,8 +58,15 @@ const NavBar = () => {
               <Link to="/sign-in">Sign in</Link>
             )}
           </li>
-          <li className="pl-4 m-auto text-xl hover:cursor-pointer">
-            <BsCart2 onClick={() => setIsCartOpen(!isCartOpen)} />
+          <li className="pl-4 m-auto text-2xl hover:cursor-pointer relative">
+            <div className="relative">
+              {totalItems ? (
+                <span className="text-sm font-bold bg-yellow-500  w-max h-max text-center px-1 rounded-full absolute left-3 bottom-3">
+                  {totalItems}
+                </span>
+              ) : null}
+              <BsCart2 onClick={() => setIsCartOpen(!isCartOpen)} />
+            </div>
           </li>
         </ul>
       </nav>
