@@ -59,5 +59,9 @@ export const addUserDataToDatabase = async (user, additionalDetails) => {
 };
 
 //Code for Database
+//Initiliazing Database
 export const db = getFirestore();
+//Ref to registeredUsers collection
 export const collectionRef = collection(db, "registeredUsers");
+//Ref to categories collection which holds all the products for the store
+export const productCollectionRef = collection(db, "categories");
