@@ -7,15 +7,16 @@ import { doc, writeBatch, getDocs } from "firebase/firestore";
 export const productsContext = createContext();
 
 //Code for adding all the products to firestore
-// const addProductsToDb = async () => {
-//   const batch = writeBatch(db);
+const addProductsToDb = async () => {
+  const batch = writeBatch(db);
 
-//   shopData.map((product) => {
-//     const docRef = doc(productCollectionRef, product.title.toLowerCase());
-//     batch.set(docRef, product);
-//   });
-//   await batch.commit();
-// };
+  shopData.map((product) => {
+    const docRef = doc(productCollectionRef, product.title.toLowerCase());
+    batch.set(docRef, product);
+  });
+  await batch.commit();
+};
+addProductsToDb();
 
 //Creating Context Provider to Wrap the enitre app
 export const ProductsContextProvider = ({ children }) => {
