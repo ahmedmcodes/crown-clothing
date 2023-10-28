@@ -9,6 +9,8 @@ const CheckOut = () => {
   const { cartItems } = useContext(cartContext);
   const { currentUser } = useContext(userContext);
 
+  //
+  const shortenedName = currentUser.displayName.split(" ")[1];
   //Function to calculate total cost on Checkout page
   const totalCost = cartItems
     .reduce((acc, item) => {
@@ -18,16 +20,31 @@ const CheckOut = () => {
 
   return (
     <div className="mx-60 p-4">
+      {/*Upper section of Checkout which is always same */}
       <div className="flex flex-row justify-between p-16 ">
-        <p className="text-3xl">Your cart</p>
+        {shortenedName ? (
+          <p className="text-3xl">{shortenedName}'s Cart</p>
+        ) : (
+          <p className="text-3xl">Your Cart</p>
+        )}
+
         <Link to="/shop" className="underline my-auto">
           Continue Shopping
         </Link>
       </div>
-      {cartItems.length > 0 ? null : <div>Your Cart is Empty</div>}
+
+      {/*Conditional Code that executes when there are no items in cart */}
+      {cartItems.length > 0 ? null : (
+        <div className="text-3xl text-center">Your Cart is Empty</div>
+      )}
+
+      {/*Code for showing all the items in the cart */}
       {cartItems.map((item, index) => {
         return <CheckOutItem key={item.id} item={item} index={index} />;
       })}
+
+      {/*Code which shows the total cost of items in the cart */}
+
       {totalCost > 0 ? (
         <div className="p-4 flex flex-col">
           <p className="ml-auto py-2">Subtotal: ${totalCost}</p>

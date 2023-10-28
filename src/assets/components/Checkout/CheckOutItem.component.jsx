@@ -56,12 +56,15 @@ const CheckOutItem = ({ item, index }) => {
               {"+"}
             </p>
           </div>
+          <div className="">
+            <button onClick={handleOnDeleteButton}>Delete</button>
+          </div>
+
           {/*  Third div*/}
 
           <div>
             <p>${(item.quantity * item.price).toFixed(2)} </p>
           </div>
-          <button onClick={handleOnDeleteButton}>Delete</button>
         </div>
       </div>
       <div></div>

@@ -34,7 +34,7 @@ const SignIn = () => {
   //   fetchData();
   // }, []);
 
-  const logInUserWithGooglePopUp = async () => {
+  const logInUserWithGooglePopUp = async (e) => {
     const { user } = await googleSignInWithPopUp();
     await addUserDataToDatabase(user);
   };
@@ -94,7 +94,7 @@ const SignIn = () => {
             <Button type="submit">Sign in</Button>
             <Button
               buttonType="google"
-              type="text"
+              type="button"
               onClick={logInUserWithGooglePopUp}
             >
               Sign in with Google

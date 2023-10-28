@@ -20,8 +20,10 @@ const Shop = () => {
         const categoryProducts = item[1];
         return (
           <>
-            <Link to={`${categoryName}`} className="capitalize">
-              {categoryName}
+            <Link to={`${categoryName}`}>
+              <h2 className="capitalize text-center text-3xl">
+                {categoryName}
+              </h2>
             </Link>
             <div
               key={categoryName}

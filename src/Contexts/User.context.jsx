@@ -8,7 +8,7 @@ export const userContext = createContext();
 //Creating Context Provider to Wrap the enitre app
 export const UserContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-
+  console.log(currentUser);
   useEffect(() => {
     const unsubAuthState = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);

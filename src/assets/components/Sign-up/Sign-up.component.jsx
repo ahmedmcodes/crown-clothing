@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   auth,
   addUserDataToDatabase,
@@ -9,7 +9,8 @@ import {
 } from "firebase/auth";
 import FormInput from "../Minor Components/FormInput.component";
 import Button from "../Minor Components/Button.component";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { userContext } from "../../../Contexts/user.context";
 
 //Default user details for Signup form
 const defaultUserDetails = {
@@ -27,6 +28,7 @@ const SignUpForm = () => {
     useState("");
 
   const { displayName, email, password, confirmPassword } = userDetails;
+  const { currentUser } = useContext(userContext);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -109,6 +111,7 @@ const SignUpForm = () => {
       {registrationSuccessMessage && (
         <div className="text-xl px-44">{registrationSuccessMessage}</div>
       )}
+      {currentUser && <Navigate to="/" replace={true} />}
     </div>
   );
 };

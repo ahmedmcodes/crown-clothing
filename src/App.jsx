@@ -11,6 +11,7 @@ import SignIn from "./assets/components/Sign-in/Sign-in.component";
 import Shop from "./assets/components/Shop/Shop.component";
 import CheckOut from "./assets/components/Checkout/Checkout.component";
 import AllCategoryProducts from "./assets/components/All-Products/AllCategoryProducts.component";
+import PageNotFound from "./assets/components/Page Not Found/PageNotFound.component";
 
 const Contact = () => {
   return <h1>I am contact component</h1>;
@@ -26,6 +27,7 @@ const route = createBrowserRouter(
       <Route path="shop/:id" element={<AllCategoryProducts />} />
       <Route path="contact" element={<Contact />} />
       <Route path="checkout" element={<CheckOut />} />
+      <Route path="*" element={<PageNotFound />} />
     </Route>
   )
 );
