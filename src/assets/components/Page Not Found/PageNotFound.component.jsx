@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { HiArrowNarrowLeft } from "react-icons/hi";
 import { RiErrorWarningLine } from "react-icons/ri";
 
-const PageNotFound = () => {
+const PageNotFound = ({ errorText }) => {
   return (
     <div className="bg-[#DCDCDC] rounded-xl h-min m-44 p-8 w-1/2 ">
       <Link
@@ -16,7 +16,7 @@ const PageNotFound = () => {
         404
         <RiErrorWarningLine className="ml-2 text-6xl" />
       </p>
-      <p className="text-xl">Page Not Found</p>
+      <p className="text-xl">{errorText}</p>
     </div>
   );
 };

@@ -31,10 +31,7 @@ const NavBar = () => {
       <nav className="flex justify-between px-44 py-6 items-center  ">
         <div className="flex ">
           <Link to="/">
-            <p className="font-righteous text-xl">
-              GENTLEMEN'S <br />
-              EMPORIUM
-            </p>
+            <p className="font-righteous text-2xl">Electra</p>
           </Link>
           <ul className="flex flex-row items-center px-6">
             <li className="px-2 hover:underline">

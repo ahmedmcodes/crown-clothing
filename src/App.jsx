@@ -24,10 +24,14 @@ const route = createBrowserRouter(
       <Route path="sign-in" element={<SignIn />} />
       <Route path="sign-up" element={<SignUpForm />} />
       <Route path="shop" element={<Shop />} />
-      <Route path="shop/:id" element={<AllCategoryProducts />} />
+      <Route
+        path="shop/:id"
+        element={<AllCategoryProducts />}
+        errorElement={<PageNotFound errorText="Something Went Wrong" />}
+      />
       <Route path="contact" element={<Contact />} />
       <Route path="checkout" element={<CheckOut />} />
-      <Route path="*" element={<PageNotFound />} />
+      <Route path="*" element={<PageNotFound errorText="Page Not Found" />} />
     </Route>
   )
 );

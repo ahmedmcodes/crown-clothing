@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { productsContext } from "../../../Contexts/Products.context";
 import ProductCard from "../Product-Card/Product-card.component";
 import { Link } from "react-router-dom";
+import Button from "../Minor Components/Button.component";
 
 const Shop = () => {
   const { products } = useContext(productsContext);
@@ -20,8 +21,8 @@ const Shop = () => {
         const categoryProducts = item[1];
         return (
           <>
-            <Link to={`${categoryName}`}>
-              <h2 className="capitalize text-center text-3xl">
+            <Link className="py-2" to={`${categoryName}`}>
+              <h2 className="capitalize text-center text-3xl py-4">
                 {categoryName}
               </h2>
             </Link>
@@ -35,6 +36,12 @@ const Shop = () => {
                 })
                 .slice(0, 4)}
             </div>
+            {/*
+
+              <div className="text-center">
+                <Button>See More</Button>
+              </div>
+              */}
           </>
         );
       })}
