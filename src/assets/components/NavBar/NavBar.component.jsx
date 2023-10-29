@@ -28,7 +28,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="flex justify-between px-44 py-6 items-center  ">
+      <nav className="flex justify-between px-44 py-6 items-center border-b-2  ">
         <div className="flex ">
           <Link to="/">
             <p className="font-righteous text-2xl">Electra</p>

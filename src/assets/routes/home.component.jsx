@@ -3,18 +3,18 @@ import Categories from "/src/assets/components/Categories/categories.component";
 import Button from "../components/Minor Components/Button.component";
 import { productsPreview } from "../../Utils/Firebase/productspreview";
 import ProductCard from "../components/Product-Card/Product-card.component";
+import FormInput from "../components/Minor Components/FormInput.component";
 const Home = () => {
   return (
     <main className="bg-main h-80  bg-no-repeat ">
       {/*Upper Most section of the homepage */}
       <div className="flex flex-col h-80 items-center justify-center  text-white">
         <div className="">
-          <h2 className="text-5xl py-1 text-bold">
-            Industrial design m
-            <span className="text-black text-bold">eets quality</span>
+          <h2 className="text-6xl py-1 text-[#808080] font-thin ">
+            Industrial design meets quality
           </h2>
-          <p className="py-4 text-xl text-center">
-            World class tech acces<span className="text-black">sories</span>
+          <p className="py-4 text-2xl text-center text-[#808080]">
+            World class tech accessories
           </p>
         </div>
         <div>
@@ -51,6 +51,38 @@ const Home = () => {
           </Link>
         </div>
       </section>
+      <section className="mx-60 py-10">
+        <h2 className="text-3xl py-5 text-center">Newly Launched!</h2>
+        <div className="grid grid-cols-2-repeat gap-y-10 p-4 gap-x-10">
+          <div className="">
+            <ProductCard product={productsPreview[6]} />
+          </div>
+          <div>
+            <ProductCard product={productsPreview[2]} />
+          </div>
+          <div>
+            <ProductCard product={productsPreview[4]} />
+          </div>
+        </div>
+      </section>
+      <footer className="border-t-2">
+        <div className="text-center py-10">
+          <h2 className="text-4xl py-2 font-righteous">Electra</h2>
+          <p className="text-xl py-2">
+            A brand that strives to inspire and push creative culture forward.
+          </p>
+          <p className="text-lg py-4 w-2/4 m-auto">
+            We approach our work with the mentality that every product made is a
+            learning experience to improve our craft. We are practitioners and
+            purveyors of creative culture and are inspired by its various forms
+            from art, design, fashion, music, film, food, and more.
+          </p>
+          <div className="pt-5 ">
+            <p className="py-2 text-md">Subscribe to our emails</p>
+            <FormInput placeholder="Email" />
+          </div>
+        </div>
+      </footer>
     </main>
   );
 };

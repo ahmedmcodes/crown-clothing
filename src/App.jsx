@@ -19,7 +19,11 @@ const Contact = () => {
 
 const route = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Navigation />}>
+    <Route
+      path="/"
+      element={<Navigation />}
+      errorElement={<PageNotFound errorText="Something Went Wrong" />}
+    >
       <Route index element={<Home />} />
       <Route path="sign-in" element={<SignIn />} />
       <Route path="sign-up" element={<SignUpForm />} />
@@ -30,7 +34,11 @@ const route = createBrowserRouter(
         errorElement={<PageNotFound errorText="Something Went Wrong" />}
       />
       <Route path="contact" element={<Contact />} />
-      <Route path="checkout" element={<CheckOut />} />
+      <Route
+        path="checkout"
+        element={<CheckOut />}
+        errorElement={<PageNotFound errorText="Something Went Wrong" />}
+      />
       <Route path="*" element={<PageNotFound errorText="Page Not Found" />} />
     </Route>
   )

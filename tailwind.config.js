@@ -8,6 +8,7 @@ export default {
     },
     gridTemplateColumns: {
       "4-repeat": "repeat(3, 1fr)",
+      "2-repeat": "repeat(2, 1fr)",
     },
     backgroundImage: {
       main: "url('/src/main-section-image.jpg')",
