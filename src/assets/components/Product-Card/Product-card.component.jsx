@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { cartContext } from "../../../Contexts/Cart.context";
 import Button from "../Minor Components/Button.component";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, section }) => {
   const { cartItems, setCartItems } = useContext(cartContext);
 
   const addProductToCart = () => {
@@ -18,14 +18,20 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="flex flex-col text-xl ">
-      <img className="rounded-xl " src={product.image} alt="img" />
+      <img
+        className="rounded-sm hover:cursor-pointer"
+        src={product.image}
+        alt="img"
+      />
       <div className="flex flex-row justify-between p-1 pt-2">
         <p>{product.name}</p>
         <p>${product.price}</p>
       </div>
-      <Button buttonType="add-to-cart" onClick={addProductToCart}>
-        Add to Cart
-      </Button>
+      {section != "main-section" && (
+        <Button buttonType="add-to-cart" onClick={addProductToCart}>
+          Add to Cart
+        </Button>
+      )}
     </div>
   );
 };

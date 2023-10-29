@@ -9,6 +9,13 @@ export default {
     gridTemplateColumns: {
       "4-repeat": "repeat(3, 1fr)",
     },
+    backgroundImage: {
+      main: "url('/src/main-section-image.jpg')",
+    },
+    height: {
+      80: "80vh",
+      70: "70vh",
+    },
 
     extend: {},
   },

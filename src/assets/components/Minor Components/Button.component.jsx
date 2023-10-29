@@ -3,11 +3,13 @@ const Button = ({ children, buttonType, ...otherProps }) => {
     <button
       className={`${
         buttonType === "google"
-          ? "bg-blue-500"
+          ? "bg-blue-500 text-white"
           : buttonType === "add-to-cart"
-          ? "bg-transparent	 text-black border-2 border-black  w-full "
-          : "bg-black"
-      } text-white text-sm  mt-4 py-3 px-8 m-auto `}
+          ? "bg-transparent text-black border-2 border-black  w-full "
+          : buttonType === "main-section-button"
+          ? "text-white border-2 border-white"
+          : "bg-black text-white"
+      }   mt-4 py-3 px-8 m-auto `}
       {...otherProps}
     >
       {children}

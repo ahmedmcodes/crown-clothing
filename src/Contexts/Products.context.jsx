@@ -6,7 +6,7 @@ import { doc, writeBatch, getDocs } from "firebase/firestore";
 //Creating Products Context for the Components nested inside the App component to use
 export const productsContext = createContext();
 
-//Code for adding all the products to firestore
+// Code for adding all the products to firestore
 // const addProductsToDb = async () => {
 //   const batch = writeBatch(db);
 
